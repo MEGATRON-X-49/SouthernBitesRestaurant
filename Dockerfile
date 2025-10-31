@@ -1,6 +1,5 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
-COPY . .
-RUN ./mvnw clean package -DskipTests
-EXPOSE 10000
-CMD ["java", "-jar", "target/*.jar"]
+COPY target/*.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
