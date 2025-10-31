@@ -1,10 +1,6 @@
 services:
   - type: web
     name: southernbitesrestaurant
-    env: java
+    env: docker
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/*.jar
-    envVars:
-      - key: SERVER_PORT
-        value: 10000
+    dockerfilePath: ./Dockerfile
